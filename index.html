@@ -1,105 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-        <link rel="stylesheet" type="text/css" href="style.css" />
-        <title>Temp Analysis - HomePage</title>
-    </head>
-    <body>
-        <!-- Start of navbar -->
-        <div class="navigation">
-            <nav class="navbar fixed-top navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="index.html">Temperature</a>
-                <button class="navbar-toggler border" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">Plots</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="temp.html">Max Temperature</a>
-                                <a class="dropdown-item" href="humidity.html">Humidity</a>
-                                <a class="dropdown-item" href="cloudiness.html">Cloudiness</a>
-                                <a class="dropdown-item" href="wind.html">Wind Speed</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="comparison.html">Comparison</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="data.html">Data</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bellybutton Biodiversity</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1>Belly Button Biodiversity Dashboard</h1>
+        <p>Use the interactive charts below to explore the dataset</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="well">
+          <h5>Test Subject ID No.:</h5>
+          <select id="selDataset" onchange="optionChanged(this.value)"></select>
         </div>
-        <!-- End of navbar -->
-        <!-- Start of container -->
-        <div class="container">
-            <div class="col-lg-12 col-md-12 col-sm-6">
-                <div class="description-content">
-                    <h1 class="description-header">Summary:</h1>
-                    <hr />
-                    <div class="col-lg-12 col-md-6">
-                        <img src="Resources/assets/images/Fig1.png" alt="Latitude vs. Max Temperature" class="img-fluid" alt="Responsive image" />
-                    </div>
-                    <div class="col-lg-12 col-md-6">
-                        <p>
-                            This website will show how some weather variables changes as you move through the earth latitude. Using the data retrieved from 500 randomly selected cities using the OpenWeatherMap API that you could find in my Github Repository.
-                          </p>
-                        <p>
-                            After assembling the dataset, we used Matplotlib to plot various aspects of the weather elements and the latitude, such as: temperature, cloudiness, wind speed, and humidity. In this pages we will see those
-                            analysis
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12 col-md-12">
-                <!-- Start of Visualizations thumbnails Area -->
-                <section id="thumbnails-area">
-                    <div class="thumbnails-content row">
-                        <h2 class="thumbnails-header">Visualizations</h2>
-                        <hr />
-                        <div class="container row clearfix">
-                            <div class="row">
-                                <div class="col-sm-3 col-md-6">
-                                    <a href="temp.html">
-                                        <img src="Resources/assets/images/Fig1.png" alt="Latitude vs. Max Temperature" , title="Latitude vs. Max Temperature" class="img-fluid" alt="Responsive image" />
-                                    </a>
-                                </div>
-                                <div class="col-sm-3 col-md-6">
-                                    <a href="humidity.html">
-                                        <img src="Resources/assets/images/Fig2.png" alt="Latitude vs. Humidity" , title="Latitude vs. Humidity" class="img-fluid" alt="Responsive image" />
-                                    </a>
-                                </div>
-                                <div class="col-sm-3 col-md-6">
-                                    <a href="cloudiness.html">
-                                        <img src="Resources/assets/images/Fig3.png" alt="Latitude vs. Cloudiness" , title="Latitude vs. Cloudiness" , class="img-fluid" alt="Responsive image" />
-                                    </a>
-                                </div>
-                                <div class="col-sm-3 col-md-6">
-                                    <a href="wind.html">
-                                        <img src="Resources/assets/images/Fig4.png" alt="Latitude vs. Wind Speed" , title="Latitude vs. Wind Speed" , class="img-fluid" alt="Responsive image" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- End of the Visualizations thumbnails Area -->
-            </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Demographic Info</h3>
+          </div>
+          <div id="sample-metadata" class="panel-body"></div>
         </div>
-        <!-- End of container -->
-    
-        <!-- JS Code for Bootstrap -->
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    </body>
+      </div>
+      <div class="col-md-5">
+        <div id="bar"></div>
+      </div>
+      <div class="col-md-5">
+        <div id="gauge"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="bubble"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="./js/app.js"></script>
+  <script src="./data/samples.json"></script>
+  
+</body>
+
 </html>
